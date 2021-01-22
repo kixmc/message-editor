@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.jaqobb"
-version = "2.4.1"
+version = "3.0.0-SNAPSHOT"
 description = "Edit in-game messages that were previously unmodifiable"
 
 java {
@@ -15,7 +15,7 @@ java {
 
 bukkit {
     name = "MessageEditor"
-    main = "dev.jaqobb.messageeditor.MessageEditorPlugin"
+    main = "dev.jaqobb.message_editor.MessageEditor"
     version = project.version as String
     apiVersion = "1.13"
     depend = listOf("ProtocolLib")
@@ -46,8 +46,8 @@ tasks {
         exclude("com/cryptomorin/xseries/XEntity*")
         exclude("com/cryptomorin/xseries/XItemStack*")
         exclude("com/cryptomorin/xseries/XPotion*")
-        relocate("com.cryptomorin.xseries", "dev.jaqobb.messageeditor.library.xseries")
-        relocate("org.bstats.bukkit", "dev.jaqobb.messageeditor.metrics")
+        relocate("com.cryptomorin.xseries", "dev.jaqobb.message_editor.library.xseries")
+        relocate("org.bstats.bukkit", "dev.jaqobb.message_editor.metrics")
     }
 }
 
@@ -61,11 +61,6 @@ repositories {
     maven("https://oss.sonatype.org/content/repositories/snapshots/") {
         content {
             includeGroup("net.md-5")
-        }
-    }
-    maven("https://libraries.minecraft.net") {
-        content {
-            includeGroup("com.mojang")
         }
     }
     maven("https://repo.dmulloy2.net/nexus/repository/public/") {
@@ -92,12 +87,11 @@ repositories {
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
-    compileOnly("com.mojang:authlib:2.0.27")
     compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.10.9")
     compileOnly("be.maximvdw:MVdWPlaceholderAPI:3.1.1-SNAPSHOT") {
         exclude("org.spigotmc")
     }
     implementation("com.github.cryptomorin:XSeries:7.6.0.0.1")
-    implementation("org.bstats:bstats-bukkit:1.7")
+    implementation("org.bstats:bstats-bukkit-lite:1.7")
 }

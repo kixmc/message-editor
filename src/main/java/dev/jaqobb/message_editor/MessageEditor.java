@@ -22,21 +22,10 @@
  * SOFTWARE.
  */
 
-package dev.jaqobb.messageeditor.listener.packet;
+package dev.jaqobb.message_editor;
 
-import com.comphenix.protocol.events.PacketContainer;
-import com.comphenix.protocol.wrappers.EnumWrappers;
-import dev.jaqobb.messageeditor.MessageEditorPlugin;
-import dev.jaqobb.messageeditor.message.MessagePlace;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public final class ScoreboardEntryPacketListener extends CommonPacketListener {
-
-    public ScoreboardEntryPacketListener(final MessageEditorPlugin plugin) {
-        super(plugin, MessagePlace.SCOREBOARD_ENTRY);
-    }
-
-    @Override
-    public boolean shouldProcess(final PacketContainer packet) {
-        return packet.getScoreboardActions().read(0) != EnumWrappers.ScoreboardAction.REMOVE;
-    }
+public final class MessageEditor extends JavaPlugin
+{
 }
